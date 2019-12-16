@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+    <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.min.js></script>
+    <script src="https://unpkg.com/ml5@0.3.1/dist/ml5.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <title>Teachable Machine and Ml5</title>
+</head>
+<body>
+    <h1>Feature Extractor with ML5!</h1>
+    <p class="results">Label: <span id="result">...</span><br />Confidence: <span id="confidence">...</span></p>
+<div class="rulesContainer">
+    <h1>DIRECTIONS</h1>
+    <ul>
+        <li>Before we play the game we need to take 3 different picture to control the agent.</li>
+        <li>Select a pose then press the add image button ONCE</li>
+        <li>I will capture 250. This will take 20 seconds</li>
+        <li>Peform steps 2 and 3 for Each label.</li>
+        <li>Now we need to 'Train' the computer to recognise each pose.</li>
+        <li>Once the training is complete is time to start. Press the 'Start' button to begin guessing.</li>
+        <li>Press "Play" to begin the game.</li>
+        <li>Rules of the games are simple dont let the obstacles hit you</li>
+        <li>If you are in a pickle destroy the obstacles with your bullets</li>
+        <li>Dont NOT waste your bullets.</li>
+        <li>There is a reload time. Ff you shoot before reloading you will lose that bullet. good luck</li>
+    </ul>
+</div>
+    <div id="container">
+
+        
+        <p id='status'>Loading model...</p>
+        <div id="videoContainer"></div>
+        <p class="stuff">
+            <button id="jumpBtn">Add Image</button>
+            <span id="jumpAmount">0 </span> Jump Images </br>
+            <button id="stayBtn">Add Image</button>
+            <span id="stayAmount">0 </span> Stay Images</br>
+            <button id="shootBtn"> Add Image</button>
+            <span id="shootAmount">0 </span> Shoot Images</br>
+            <button id="train">Train</button><span id="loss"></span>
+            <button id="buttonPredict">Start</button><br />
+
+        </p>
+        
+    </div>
+    <div id="gameCanvas">
+        <div id="score">SCORE: </div>
+        <div id='gameOver'></div>
+        <div class="control">
+            <div id="ammo">AMMO</div>
+            <button id="play">Play</button>
+            <button id="reset">Reset</button>
+        </div>
+    </div>
+    <script src="./sketch.js"></script> 
+    <script src="./agent.js"></script>
+    <script src="./obstacles.js"></script>
+    <script src="./bullet.js"></script>
+</body>
+</html>
